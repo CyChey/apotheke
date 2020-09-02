@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+    <h1>Products</h1>
+    <ul>
+        <% products.forEach(product => { %>
+        <li>
+            <%= product.name %>
+            <button disabled="<%= card.find(({ productId }) => productId === product._id)%>"
+                data-product-id="<%= product._id %>">
+                Add To Cart
+            </button>
+        </li>
+        <% }) %>
+    </ul>
+
+    <a href="/login/google">Login with Google</a>
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', () => {
+            Array.from(document.querySelectorAll('button')).forEach(button => {
+                button.addEventListener('click', function onClick({ target }) {
+                    const productId = target.dataset.productId;
+                    fetch('/cart/', {
+                        method: 'POST',
+                        mode: 'cors',
+                        credentials: 'same-origin',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            productId,
+                        }),
+                    })
+                });
+            })
+        })
+
+    </script>
+</body>
+
+</html>

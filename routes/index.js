@@ -3,7 +3,7 @@ const passport = require('passport')
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-  res.render('index', { title: 'Home', user: req.user });
+  res.render('index', { title: 'Apotheke', user: req.user });
 });
 
 // Google OAuth login route
