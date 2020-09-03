@@ -12,13 +12,13 @@
         </ul>
         <ul>
             <% if (!isAuthenticated) { %>
-            <li>
-                <a href="/login">Log in</a>
+            <li class="login">
+                <a href="/login">Login</a>
             </li>
             <% } else { %>
-            <li>
+            <li class="cart">
                 <a href="/cart">
-
+                    Cart
                 </a>
             </li>
             <% } %>
