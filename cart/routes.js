@@ -14,8 +14,13 @@ routes.get(
             const cart = await Cart.find({
                 userId: req.user.id
             });
+            const products = await Product.find({
+                _id: {
+                    $in: cart.map(({ productId }) => productId),
+                }
+            });
             res.render('cart.ejs', {
-                cart,
+                products,
                 isAuthenticated: req.isAuthenticated(),
             })
         } catch (err) {
@@ -30,7 +35,6 @@ routes.post(
     async (req, res, next) => {
         try {
             const product = await Product.findById(req.body.productId);
-            console.log(product);
             await Cart.create({
                 userId: req.user.id,
                 productId: req.body.productId,

@@ -1,4 +1,5 @@
 const { Router } = require('express');
+const { body, validationResult, param } = require('express-validator');
 const Products = require('./model');
 const Cart = require('../cart/model');
 
@@ -11,6 +12,7 @@ routes.get('/', async (req, res, next) => {
             Products.find({}),
             Cart.find({ userId }),
         ]);
+        console.log(products);
         res.render('products.ejs', {
             cart,
             products,
@@ -21,21 +23,33 @@ routes.get('/', async (req, res, next) => {
     }
 });
 
-routes.post('/', (req, res, next) => {
-    console.log(req.body);
-    Products.create({
-        name: req.body.name,
-        description: req.body.description,
-        price: 0,
-        imageUrl: 'https://i.imgur.com/3VJlL4M.png',
-    }, (err, data) => {
-        if (err) {
+routes.post(
+    '/',
+    [
+        body('name').isString(),
+        body('imageUrl').isURL(),
+        body('description').isString(),
+    ],
+    async (req, res, next) => {
+        try {
+            const errors = validationResult(req);
+            if (!errors.isEmpty()) {
+                res.status(400).json({ errors: errors.array() });
+            }
+            const product = await Products.create({
+                name: req.body.name,
+                description: req.body.description,
+                price: 0,
+                imageUrl: req.body.imageUrl,
+            }, {
+
+            });
+            res.json(product);
+        } catch (err) {
             next(err);
-        } else {
-            res.end();
         }
+
     });
-});
 
 routes.delete('/:id', (req, res, next) => {
     Products.deleteOne({ _id: req.params.id }, function (err, data) {
@@ -46,5 +60,19 @@ routes.delete('/:id', (req, res, next) => {
         }
     });
 });
+
+
+routes.get('/:id', [param('id').isMongoId()], async (req, res, next) => {
+    try {
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            res.status(400).json(errors.toArray());
+        }
+        const product = await Products.findById(req.params.id);
+        res.json(product);
+    } catch (err) {
+        next(err);
+    }
+})
 
 module.exports = routes;

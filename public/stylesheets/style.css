@@ -1,7 +1,23 @@
 body {
-  /* padding: 50px;
+  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  */
+  background-color:#AF8A7F;
+  margin: 0 auto;
+  color: #002937;
+ 
+}
+
+a:link, a:visited {
+  background-color:	#B1B199;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  color: #002937;
 }
 
 
+ul {
+  list-style: none;
+  display: inline-block;
+}
