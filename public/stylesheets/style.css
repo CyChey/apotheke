@@ -1,23 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&display=swap');
+
+:root {
+  --bg: #AF8A7F;
+  --text-primary: #002937;
+}
+
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color:#AF8A7F;
+  background-color: var(--bg);
   margin: 0 auto;
-  color: #002937;
+  color: var(--text-primary);
  
 }
 
+header nav {
+  box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.75);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  padding-left: 1rem;
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  max-width: 1680px;
+  max-height: 100px;
+}
+
+header li a {
+ background-color: transparent;
+ font-size: 48px;
+
+ 
+}
+
+.nav-logo { 
+position: relative;
+margin-left: auto;
+padding-right: 75px;
+
+}
+
+.resize {
+  width: 150px;
+  height: auto;
+  padding-top: 15px;
+  
+}
+
+
+
+
 a:link, a:visited {
-  background-color:	#B1B199;
   padding: 14px 25px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  color: #002937;
+  color: #002937
+  
 }
-
-
+ 
 ul {
   list-style: none;
   display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  padding: 0.35em 1.2em;
+  border: 0.1em solid #002937;
+  margin: 0 0.3em 0.3em 0;
+  border-radius: 0.12em;
+  box-sizing: border-box;
+  text-decoration: none;
+  color: #002937;
+  text-align: center;
+  transition: all 0.2s;
+}
+
+button:hover {
+  color: #B1B199;
+  background-color: #002937;
+}
+
+h1 {
+font-family: 'Josefin Sans', sans-serif;
 }
