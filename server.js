@@ -39,11 +39,15 @@ app.use(methodOverride('_method'));
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use('/', indexRouter);
+// app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use(require('./auth'));
 app.use('/products', require('./products'));
 app.use('/cart', require('./cart'));
+
+app.get('/', (req, res, next) => {
+  res.redirect('/products');
+});
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

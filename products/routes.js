@@ -4,21 +4,17 @@ const Cart = require('../cart/model');
 
 const routes = Router();
 
-routes.get('/', (req, res, next) => {
-    if (!req.user) {
-        res.status(400).end();
-    } else {
-        next();
-    }
-}, async (req, res, next) => {
+routes.get('/', async (req, res, next) => {
+    const { user: { id: userId } = {} } = req;
     try {
         const [products, cart] = await Promise.all([
             Products.find({}),
-            Cart.find({ userId: req.user.id }),
+            Cart.find({ userId }),
         ]);
         res.render('products.ejs', {
             cart,
             products,
+            isAuthenticated: req.isAuthenticated(),
         })
     } catch (e) {
         next(e);

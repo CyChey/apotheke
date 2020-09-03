@@ -3,6 +3,11 @@ const passport = require('passport');
 
 const routes = Router();
 
+routes.get('/login', (req, res) => {
+    res.render('login.ejs', {
+    });
+});
+
 routes.get(
     '/login/google',
     passport.authenticate('google', {

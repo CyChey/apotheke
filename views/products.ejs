@@ -2,28 +2,33 @@
 <html>
 
 <head>
-    <title><%= title %></title>
+    <title>Apotheke - Products</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
 </head>
 
 <body>
+    <%- include('./partials/header.ejs') %>
     <h1>Products</h1>
     <ul>
         <% products.forEach(product => { %>
         <li>
             <%= product.name %>
-            <button disabled="<%= card.find(({ productId }) => productId === product._id)%>"
-                data-product-id="<%= product._id %>">
+            <button data-task="add" <%= !isAuthenticated ? "disabled" : "" %> data-product-id="<%= product._id %>">
                 Add To Cart
             </button>
+            <% if (cart.find(({ productId }) => product._id == productId)) { %>
+            <button data-task="delete" <%= !isAuthenticated ? "disabled" : "" %> data-product-id="<%= product._id %>">
+                Remove From Cart
+            </button>
+            <% } %>
+
         </li>
         <% }) %>
     </ul>
 
-    <a href="/login/google">Login with Google</a>
     <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', () => {
-            Array.from(document.querySelectorAll('button')).forEach(button => {
+            Array.from(document.querySelectorAll('button[data-task="add"]')).forEach(button => {
                 button.addEventListener('click', function onClick({ target }) {
                     const productId = target.dataset.productId;
                     fetch('/cart/', {
@@ -36,6 +41,17 @@
                         body: JSON.stringify({
                             productId,
                         }),
+                    })
+                });
+            })
+            Array.from(document.querySelectorAll('button[data-task="delete"]')).forEach(button => {
+                button.addEventListener('click', function onClick({ target }) {
+                    const productId = target.dataset.productId;
+                    console.log("Delete me");
+                    fetch(`/cart/product/${productId}`, {
+                        method: 'DELETE',
+                        mode: 'cors',
+                        credentials: 'same-origin',
                     })
                 });
             })
