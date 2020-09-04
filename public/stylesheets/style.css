@@ -1,10 +1,11 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Basic&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@800&display=swap');
 
 
 :root {
-  --bg: #AF8A7F;
-  --text-primary: #002937 ;
+  --bg: rgba(159, 183, 170, 0.5);
+  --text-primary:  rgb(4, 40, 52);
 }
 
 body {
@@ -25,18 +26,18 @@ header nav {
   padding-left: 1rem;
   border-bottom-left-radius: 0.5rem;
   border-bottom-right-radius: 0.5rem;
-  max-width: 1680px;
+  max-width: 1903px;
   max-height: 100px;
   background-image:url('https://images.unsplash.com/photo-1496661415325-ef852f9e8e7c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1598&q=80');
   background-position: center;
+  top: 0;
+  width: 100%; 
 
-  
 }
 
 header li a {
  font-size: 48px;
 }
-
 
 .nav-logo { 
 position: relative;
@@ -76,6 +77,8 @@ a:link, a:visited {
    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
    border-radius: 15px;
    font-family: 'Basic', sans-serif;
+   margin: 0 auto;
+   
    }
 
    .login:hover {
@@ -103,7 +106,7 @@ ul {
   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
   border-radius: 15px;
   font-family: 'Basic', sans-serif;
-  
+  margin: 0 auto;
 }
 
 .cart:hover {
@@ -111,25 +114,75 @@ ul {
 }
 
 button {
-  padding: 0.35em 1.2em;
-  border: 0.1em solid #002937;
-  margin: 0 0.3em 0.3em 0;
-  border-radius: 0.12em;
-  box-sizing: border-box;
-  text-decoration: none;
+  background:transparent;
+  padding: 13px;
   color: #002937;
-  text-align: center;
-  transition: all 0.2s;
+  font-family: 'Basic', sans-serif;
+  font-weight: 700;
 }
 
 button:hover {
   color: #B1B199;
   background-color: #002937;
+
 }
+
+.products-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 
 h2 {
   text-align: center;
   font-size: 48px;
   font-family: 'Basic', sans-serif;
 }
+
+li.product-layout {
+  display: flex;
+  margin: 8rem;
+  flex-direction: column;
+  box-shadow: 1px 5px 15px #002937;
+  background-color: rgba(92, 53, 60, 0.4);
+  
+}
+
+
+.product-img {
+  width: 350px;
+  height: 300px;
+}
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+  
+}
+
+.products {
+  position:relative;
+  top:-5px;
+  left:10px;
+  color: #002937;
+  font-weight:200;
+  margin-bottom:-20px;
+}
+
+.product-card {
+width: 350px;
+padding: 0;
+margin-top: 5px;
+margin: 15px;
+
+}
+
+.price {
+  padding-left: 25px;
+  font-weight:700;
+  font-size:18px;
+  font-family: 'Playfair Display', serif;
+
+}
+
 

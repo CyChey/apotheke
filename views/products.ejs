@@ -9,22 +9,35 @@
 <body>
     <%- include('./partials/header.ejs') %>
     <h2>Products</h2>
-    <ul>
-        <% products.forEach(product => { %>
-        <li>
-            <%= product.name %>
-            <button data-task="add" <%= !isAuthenticated ? "disabled" : "" %> data-product-id="<%= product._id %>">
-                Add To Cart
-            </button>
-            <% if (cart.find(({ productId }) => product._id == productId)) { %>
-            <button data-task="delete" <%= !isAuthenticated ? "disabled" : "" %> data-product-id="<%= product._id %>">
-                Remove From Cart
-            </button>
-            <% } %>
-
-        </li>
-        <% }) %>
-    </ul>
+    <section class="products">
+        <ul class="flex products-list">
+            <% products.forEach(product => { %>
+            <li class="product-layout">
+                <div class="product-card">
+                    <img class="product-img" src="<%= product.imageUrl %>" alt="<%= product.name %>" />
+                    <h3 class="product-info">
+                        <%= product.name %>
+                    </h3>
+                    <p class="description">
+                        <%= product.description %>
+                    </p>
+                    <p class="price">
+                        <%= product.price %>
+                    </p>
+                </div>
+                <button data-task="add" <%= !isAuthenticated ? "disabled" : "" %> data-product-id="<%= product._id %>">
+                    Add To Cart
+                </button>
+                <% if (cart.find(({ productId }) => product._id == productId)) { %>
+                <button data-task="delete" <%= !isAuthenticated ? "disabled" : "" %>
+                    data-product-id="<%= product._id %>">
+                    Remove From Cart
+                </button>
+                <% } %>
+            </li>
+            <% }) %>
+        </ul>
+    </section>
 
     <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', () => {
