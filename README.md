@@ -1,7 +1,7 @@
 # apotheke
 
 Full Stack Application 
-
+![alt-text](https://i.imgur.com/Uvvw5SD.png)
 
 
 <strong>Wireframe</strong>
@@ -14,5 +14,7 @@ Express, Node.js, MongoDB
 <br />
 
 <strong>Description</strong>
+
+
 
 
