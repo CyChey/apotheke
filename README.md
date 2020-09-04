@@ -1,6 +1,6 @@
 # apotheke
 
-First full stack app
+Full Stack Application 
 
 
 
@@ -10,6 +10,7 @@ First full stack app
 
 <strong>Technologies Used</strong>
 
+Express, Node.js, MongoDB
 <strong>Description</strong>
 
 
