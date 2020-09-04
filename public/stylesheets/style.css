@@ -193,4 +193,14 @@ margin: 15px;
 
 }
 
+.empty-cart {
+  display: flex;
+  margin: 8rem;
+  flex-direction: column;
+  box-shadow: 1px 5px 15px #002937;
+  padding: 8px;
+  font-size: 18px;
+  text-align: center;
+}
+
 
