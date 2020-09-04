@@ -12,7 +12,7 @@ routes.get(
         res.redirect('/');
     });
 
-// routes.get('/google/callback', passport.authenticate('google'));
+
 routes.get('/google/callback', passport.authenticate('google'), (req, res) => {
     res.redirect('/');
 })
@@ -24,6 +24,4 @@ routes.get('/logout', (req, res) => {
 
 module.exports = routes;
 
-// routes.get('/google/callback', (req, res, next) => {
-//     console.log('Yay')
-// })
+

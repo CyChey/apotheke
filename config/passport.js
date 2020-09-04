@@ -25,24 +25,7 @@ passport.use(new GoogleStrategy({
         } catch (err) {
             cb(err);
         }
-        // console.log(user);
-        // User.findOne({ 'googleId': profile.id }, async function (err, user) {
 
-        //     if (err) return cb(err);
-        //     if (user) {
-        //         return cb(null, user);
-        //     } else {
-        //         var newUser = new User({
-        //             name: profile.displayName,
-        //             email: profile.emails[0].value,
-        //             googleId: profile.id
-        //         });
-        //         newUser.save(function (err) {
-        //             if (err) return cb(err);
-        //             return cb(null, newUser);
-        //         });
-        //     }
-        // });
     }
 ));
 
