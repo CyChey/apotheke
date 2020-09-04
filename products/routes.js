@@ -12,7 +12,6 @@ routes.get('/', async (req, res, next) => {
             Products.find({}),
             Cart.find({ userId }),
         ]);
-        console.log(products);
         res.render('products.ejs', {
             cart,
             products,
@@ -58,7 +57,6 @@ routes.patch('/:id', [param('id').isMongoId()], async (req, res, next) => {
             res.status(400).json({ errors: errors.array() });
         }
         const product = await Products.findById(req.params.id);
-        console.log(product);
         if (!product) {
             res.status(404).end();
         }
@@ -68,7 +66,6 @@ routes.patch('/:id', [param('id').isMongoId()], async (req, res, next) => {
             if (key && value) {
                 update.$set[key] = value;
             }
-            console.log(update);
         }
         await Products.updateOne({ _id: req.params.id }, update);
         res.end();

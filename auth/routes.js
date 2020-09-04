@@ -3,11 +3,6 @@ const passport = require('passport');
 
 const routes = Router();
 
-routes.get('/login', (req, res) => {
-    res.render('login.ejs', {
-    });
-});
-
 routes.get(
     '/login/google',
     passport.authenticate('google', {
@@ -21,6 +16,11 @@ routes.get(
 routes.get('/google/callback', passport.authenticate('google'), (req, res) => {
     res.redirect('/');
 })
+
+routes.get('/logout', (req, res) => {
+    req.logout();
+    res.redirect('/');
+});
 
 module.exports = routes;
 

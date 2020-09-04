@@ -6,8 +6,6 @@ var logger = require('morgan');
 const session = require('express-session');
 var methodOverride = require('method-override');
 const passport = require('passport');
-
-var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 require('dotenv').config();
