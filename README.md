@@ -14,7 +14,7 @@ Express, Node.js, MongoDB, OAuth, EJS
 <br />
 
 <strong>Screenshot of Main Product Page</strong>
-https://i.imgur.com/voWtXjm.png
+![alt-text](https://i.imgur.com/voWtXjm.png)
 
 
 
