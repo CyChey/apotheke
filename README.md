@@ -20,6 +20,7 @@ Express, Node.js, MongoDB, OAuth, EJS
 <h2>Description w/ Link</h2>
 
 Full stack web application for an online bath and body shop. 
+http://apotheke.herokuapp.com/products
 
 
 
