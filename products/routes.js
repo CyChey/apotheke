@@ -2,6 +2,7 @@ const { Router } = require('express');
 const { body, validationResult, param } = require('express-validator');
 const Products = require('./model');
 const Cart = require('../cart/model');
+const { patchUpdate } = require('./controller');
 
 const routes = Router();
 
@@ -56,18 +57,12 @@ routes.patch('/:id', [param('id').isMongoId()], async (req, res, next) => {
         if (!errors.isEmpty()) {
             res.status(400).json({ errors: errors.array() });
         }
+
         const product = await Products.findById(req.params.id);
         if (!product) {
             res.status(404).end();
         }
-        const update = { $set: {} };
-        for (const key in req.body) {
-            const value = req.body[key];
-            if (key && value) {
-                update.$set[key] = value;
-            }
-        }
-        await Products.updateOne({ _id: req.params.id }, update);
+        await patchUpdate(id, req.body);
         res.end();
     } catch (e) {
         next(e);
