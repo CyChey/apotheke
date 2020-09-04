@@ -10,10 +10,12 @@ Full Stack Application
 
 <strong>Technologies Used</strong>
 
-Express, Node.js, MongoDB 
+Express, Node.js, MongoDB, OAuth, EJS
 <br />
 
-<strong>Description</strong>
+<strong>Screenshot of Main Product Page</strong>
+https://i.imgur.com/voWtXjm.png
+
 
 
 
