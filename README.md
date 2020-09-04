@@ -10,7 +10,8 @@ Full Stack Application
 
 <strong>Technologies Used</strong>
 
-Express, Node.js, MongoDB
+Express, Node.js, MongoDB 
+<br />
 <strong>Description</strong>
 
 
