@@ -118,12 +118,12 @@ button {
   padding: 13px;
   color: #002937;
   font-family: 'Basic', sans-serif;
-  font-weight: 700;
+  font-size: 18px;
 }
 
 button:hover {
-  color: #B1B199;
-  background-color: #002937;
+  color:rgb(225,224, 200);
+  background-color: rgba(0, 41, 55, 0.5);
 
 }
 
@@ -139,12 +139,20 @@ h2 {
   font-family: 'Basic', sans-serif;
 }
 
+h3 {
+  font-weight: 900;
+  font-size: 25px;
+  color: #002937;
+}
+
 li.product-layout {
   display: flex;
   margin: 8rem;
   flex-direction: column;
   box-shadow: 1px 5px 15px #002937;
-  background-color: rgba(92, 53, 60, 0.4);
+  background-color: rgba(92, 53, 60, 0.3);
+  font-size: 18px;
+  text-align: center;
   
 }
 

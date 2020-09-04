@@ -51,6 +51,55 @@ routes.post(
 
     });
 
+routes.patch('/:id', [param('id').isMongoId()], async (req, res, next) => {
+    try {
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            res.status(400).json({ errors: errors.array() });
+        }
+        const product = await Products.findById(req.params.id);
+        console.log(product);
+        if (!product) {
+            res.status(404).end();
+        }
+        const update = { $set: {} };
+        for (const key in req.body) {
+            const value = req.body[key];
+            if (key && value) {
+                update.$set[key] = value;
+            }
+            console.log(update);
+        }
+        await Products.updateOne({ _id: req.params.id }, update);
+        res.end();
+    } catch (e) {
+        next(e);
+    }
+
+});
+
+routes.put(
+    '/:id',
+    [
+        param('id').isString(),
+        body('name').isString(),
+        body('imageUrl').isURL(),
+        body('description').isString(),
+    ],
+    async (req, res, next) => {
+        try {
+            const errors = validationResult(req);
+            if (!errors.isEmpty()) {
+                res.status(400).json({ errors: errors.array() });
+            }
+            await Products.updateOne({ _id: req.params.id }, { $set: req.body });
+            res.end();
+        } catch (e) {
+            next(e);
+        }
+
+    });
+
 routes.delete('/:id', (req, res, next) => {
     Products.deleteOne({ _id: req.params.id }, function (err, data) {
         if (err) {

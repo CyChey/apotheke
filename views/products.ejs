@@ -25,13 +25,15 @@
                         <%= product.price %>
                     </p>
                 </div>
-                <button data-task="add" <%= !isAuthenticated ? "disabled" : "" %> data-product-id="<%= product._id %>">
-                    Add To Cart
-                </button>
+
                 <% if (cart.find(({ productId }) => product._id == productId)) { %>
                 <button data-task="delete" <%= !isAuthenticated ? "disabled" : "" %>
                     data-product-id="<%= product._id %>">
                     Remove From Cart
+                </button>
+                <% } else { %>
+                <button data-task="add" <%= !isAuthenticated ? "disabled" : "" %> data-product-id="<%= product._id %>">
+                    Add To Cart
                 </button>
                 <% } %>
             </li>

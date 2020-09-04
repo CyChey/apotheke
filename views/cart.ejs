@@ -10,7 +10,17 @@
 <body>
     <%- include('./partials/header.ejs') %>
     <main>
-        <%= products %>
+        <% if (!products.length) { %>
+        <p class="empty-cart">Your cart is empty</p>
+        <% } %>
+        <ul>
+            <% products.forEach(product => { %>
+            <li><%= product.name %></li>
+            <li><%= product.description %></li>
+            <li><%= product.price %></li>
+            <% }) %>
+        </ul>
+
     </main>
 </body>
 
