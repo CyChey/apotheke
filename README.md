@@ -10,7 +10,14 @@ Full Stack Application
 
 <h2>Technologies Used</h2>
 
-Express, Node.js, MongoDB, OAuth, EJS
+<ul>
+  <li>Html</li>
+  <li>CSS</li>
+  <li>JS</li>
+  <li>Node.js</li>
+  <li>MongoDB</li>
+  <li>Express</li>
+  </ul>
 <br />
 
 <h2>Screenshot of Main Product Page</h2>
@@ -19,7 +26,7 @@ Express, Node.js, MongoDB, OAuth, EJS
 
 <h2>Description w/ Link</h2>
 
-Full stack web application for an online bath and body shop. 
+Full stack web application with product layout. 
 http://apotheke.herokuapp.com/products
 
 
